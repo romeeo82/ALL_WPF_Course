@@ -1,0 +1,46 @@
+﻿<Window x:Class="WPFpractice3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFpractice3"
+        xmlns:viewModel="clr-namespace:WPFpractice3.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="500">
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" >
+            <DataGrid x:Name="persons" ItemsSource="{Binding Path=Persons}" 
+                      SelectedItem="{Binding Path=SelectedPerson}"
+                      ColumnWidth="*"
+                      CanUserAddRows="False"
+                      Height="auto"  Margin="5"></DataGrid>
+            <WrapPanel  Margin="5">
+                <StackPanel>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <Label Margin="5"  Content="name"/>
+                        <TextBox Margin="5" Text="{Binding Path=SelectedPerson.Name}" />
+                        <Label Margin="5" Content="department" />
+                        <TextBox Margin="5" Text="{Binding Path=SelectedPerson.Department}" />
+                    </StackPanel>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <Label Margin="5" Content="hired date" />
+                        <TextBox Margin="5" Text="{Binding Path=SelectedPerson.HiredDate}" />
+                        <Label Margin="5" Content="manager" />
+                        <CheckBox Margin="5" IsChecked="{Binding Path=SelectedPerson.IsManager}" />
+                    </StackPanel>
+                </StackPanel>
+            </WrapPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Command="{Binding Path=NewCommand}">New</Button>
+                <Button Margin="5" Command="{Binding Path=DeleteCommand}">Delete</Button>
+                <Button Margin="5" Command="{Binding Path=ShowCommand}">Show</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

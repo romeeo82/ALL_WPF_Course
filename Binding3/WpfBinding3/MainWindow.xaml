@@ -1,0 +1,111 @@
+﻿<Window x:Class="WpfBinding3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfBinding3"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="758.086" Width="855.795" >
+
+    <Grid>
+        <Grid.Resources>
+            <system:String x:Key="theFirstText">Vasya</system:String>
+            <system:String x:Key="theSecondText" >Vetrov</system:String>
+            <system:Boolean x:Key="checkBox">True</system:Boolean>
+
+            <local:Pupil x:Key="firstPupil" FirstName="Peter" LastName="Petrov" Degree="True"></local:Pupil>
+
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
+          <Button x:Name="btn1" Margin="5" Height="20" Click="OnBtn1Click">BTN 1</Button>
+            <TextBox x:Name="text1" Margin="5" MinWidth="100"></TextBox>
+            <Label Content="{Binding ElementName=text1, Path=Text}" Margin="5"></Label>
+            <TextBox x:Name="text2" Margin="5" MinWidth="100"></TextBox>
+            <Label Content="{Binding ElementName=text2, Path=Text}" Margin="5"></Label>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1">
+            <ProgressBar Height="20" Value="{Binding ElementName=slider1, Path=Value}" Margin="5"></ProgressBar>
+            <Slider x:Name="slider1" Minimum="0" Maximum="100" Margin="5"></Slider>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1">
+            <ComboBox x:Name="cmb1" Margin="5" Foreground="{Binding ElementName=cmb1,Path=SelectedItem.Foreground}">
+                <ComboBoxItem Foreground="Red">red</ComboBoxItem>
+                <ComboBoxItem Foreground="Green">green</ComboBoxItem>
+                <ComboBoxItem Foreground="Blue">blue</ComboBoxItem>
+            </ComboBox>
+            <TextBox x:Name="text3" Margin="5"></TextBox>
+            <Label Margin="5" Foreground="{Binding ElementName=cmb1,Path=SelectedItem.Tag}" Content="{Binding ElementName=text3, Path=Text}"></Label>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1">
+            <TextBox Text="{Binding Source={StaticResource theFirstText}, Mode=OneWay}" x:Name="firstName" Margin="5" MinWidth="100"></TextBox>
+            <TextBox Text="{Binding Source={StaticResource theSecondText}, Mode=OneWay}" x:Name="lastName" Margin="5" MinWidth="100"></TextBox>
+            <CheckBox x:Name="degree" IsChecked="{DynamicResource checkBox}" Margin="5"></CheckBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0" DataContext="{StaticResource firstPupil}" Grid.ColumnSpan="1">
+            <TextBox Text="{Binding FirstName}"  x:Name="firstName2" Margin="5" MinWidth="100"></TextBox>
+            <TextBox Text="{Binding LastName}" x:Name="lastName2" Margin="5" MinWidth="100"></TextBox>
+            <CheckBox x:Name="degree2" IsChecked="{Binding Degree}"  Margin="5"></CheckBox>
+        </StackPanel>
+        <StackPanel x:Name="stackPanelPupil2" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1">
+            <TextBox Text="{Binding FirstName}"  x:Name="firstName3" Margin="5" MinWidth="100"></TextBox>
+            <TextBox Text="{Binding LastName}" x:Name="lastName3" Margin="5" MinWidth="100"></TextBox>
+            <CheckBox x:Name="degree3" IsChecked="{Binding Degree}"  Margin="5"></CheckBox>
+        </StackPanel>
+        <StackPanel x:Name="stackPanelToDo" Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="1">
+            <StackPanel.Resources>
+                <DataTemplate x:Key="todoTemplate" DataType="{x:Type local:ToDo}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0"  Content="task name"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding TaskName}"></TextBox>
+                        <Label Grid.Row="1" Grid.Column="0" Content="description"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="0" Content="priority"></Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Priority}"></TextBox>
+                    </Grid>
+                </DataTemplate>
+            </StackPanel.Resources>
+            <ListBox ItemsSource="{Binding}" ItemTemplate="{StaticResource todoTemplate}" Height="auto"  Margin="5"></ListBox>
+        </StackPanel>
+        <StackPanel x:Name="stackPanelPersons" Grid.Row="3" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="1">
+            <DataGrid x:Name="persons" ItemsSource="{Binding}" Height="auto"  Margin="5"></DataGrid>
+            <WrapPanel DataContext="{Binding ElementName=persons, Path=SelectedItem}" Margin="5">
+                <StackPanel>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <Label Margin="5"  Content="name"/>
+                        <TextBox Margin="5" Text="{Binding Path=Name}" />
+                        <Label Margin="5" Content="department" />
+                        <TextBox Margin="5" Text="{Binding Path=Department}" />
+                    </StackPanel>
+                    <StackPanel Margin="5" Orientation="Horizontal">
+                        <Label Margin="5" Content="hired date" />
+                        <TextBox Margin="5" Text="{Binding Path=HiredDate}" />
+                        <Label Margin="5" Content="manager" />
+                        <CheckBox Margin="5" IsChecked="{Binding Path=IsManager}" />
+                    </StackPanel>
+                </StackPanel>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</Window>

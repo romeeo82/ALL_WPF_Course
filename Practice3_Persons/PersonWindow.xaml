@@ -1,0 +1,38 @@
+﻿<Window x:Class="WPFpractice3.PersonWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFpractice3"
+        mc:Ignorable="d"
+        Title="PersonWindow" Height="215.303" Width="275.978">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <Grid Visibility="{Binding IsManager, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Rectangle x:Name="recPerson"
+                       Fill="GreenYellow"                      
+                       Height="20"></Rectangle>
+                <Label HorizontalAlignment="Center">Manager</Label>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5">Id</Label>
+                <Label Margin="5" Content="{Binding Id}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5">Name</Label>
+                <Label Margin="5" Content="{Binding Name}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5">Department</Label>
+                <Label Margin="5" Content="{Binding Department}"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Margin="5">Hired date</Label>
+                <Label Margin="5" Content="{Binding HiredDate}"></Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

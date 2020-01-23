@@ -1,0 +1,98 @@
+﻿<Window x:Class="BooksWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BooksWPF"
+        xmlns:views="clr-namespace:BooksWPF.Views"
+        xmlns:tools="clr-namespace:BooksWPF.Tools"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="600">
+    <Window.CommandBindings>
+        <CommandBinding Command="tools:CustomCommands.NewAuthor"
+                        Executed="CommandBinding_NewAuthorExecuted"
+                        CanExecute="CommandBinding_NewAuthorCanExecute"
+                        ></CommandBinding>
+        <CommandBinding Command="tools:CustomCommands.RemoveAuthor"
+                        Executed="CommandBinding_RemoveAuthorExecuted"
+                        CanExecute="CommandBinding_RemoveAuthorCanExecute"
+                        ></CommandBinding>
+        <CommandBinding Command="tools:CustomCommands.ChangeAuthor"
+                        Executed="CommandBinding_ChangeAuthorExecuted"
+                        CanExecute="CommandBinding_ChangeAuthorCanExecute"
+                        ></CommandBinding>
+        <CommandBinding Command="tools:CustomCommands.NewBook"
+                        Executed="CommandBinding_NewBookExecuted"
+                        CanExecute="CommandBinding_NewBookCanExecute"
+                        ></CommandBinding>
+        <CommandBinding Command="tools:CustomCommands.RemoveBook"
+                        Executed="CommandBinding_RemoveBookExecuted"
+                        CanExecute="CommandBinding_RemoveBookCanExecute"
+                        ></CommandBinding>
+        <CommandBinding Command="tools:CustomCommands.ChangeBook"
+                        Executed="CommandBinding_ChangeBookExecuted"
+                        CanExecute="CommandBinding_ChangeBookCanExecute"
+                        ></CommandBinding>
+    </Window.CommandBindings>
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <MenuItem Header="New Author" Command="tools:CustomCommands.NewAuthor"></MenuItem>
+                <MenuItem Header="New Book" Command="tools:CustomCommands.NewBook"></MenuItem>
+                <MenuItem Header="Remove Author" Command="tools:CustomCommands.RemoveAuthor"></MenuItem>
+                <MenuItem Header="Remove Book" Command="tools:CustomCommands.RemoveBook"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Edit Author" Command="tools:CustomCommands.ChangeAuthor"></MenuItem>
+                <MenuItem Header="Edit Book" Command="tools:CustomCommands.ChangeBook"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <ListView x:Name="authorsListView" ItemsSource="{Binding}" Grid.Row="1" Grid.Column="0"></ListView>
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2">
+            <Separator ></Separator>
+            <StackPanel Orientation="Horizontal">
+                <Button Margin="5" Command="tools:CustomCommands.NewAuthor">New</Button>
+                <Button Margin="5" Command="tools:CustomCommands.ChangeAuthor">Change</Button>
+                <Button Margin="5" Command="tools:CustomCommands.RemoveAuthor">Delete</Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <views:DetailedView x:Name="detailedView" DataContext="{Binding ElementName=authorsListView,Path=SelectedItem, Mode=TwoWay, NotifyOnSourceUpdated=True}"></views:DetailedView>
+            <GroupBox Header="Books">
+                <DataGrid x:Name="booksDataGrid"
+                          AutoGenerateColumns="False"
+                          ItemsSource="{Binding ElementName=authorsListView, Path=SelectedItem.Books}"
+                          CanUserAddRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="#" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Title" Binding="{Binding Path=Title}"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="Date" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding Path=Date}"></DatePicker>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridComboBoxColumn x:Name="dgComboboxLanguage" Header="Language" 
+                                                TextBinding="{Binding ElementName=authorsListView, Path=SelectedItem.Language}"></DataGridComboBoxColumn>
+                        <DataGridCheckBoxColumn Header="Read"></DataGridCheckBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Margin="5" Command="tools:CustomCommands.NewBook">New</Button>
+                <Button Margin="5" Command="tools:CustomCommands.ChangeBook">Change</Button>
+                <Button Margin="5" Command="tools:CustomCommands.RemoveBook">Delete</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
