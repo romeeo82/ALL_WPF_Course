@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ using WPFpractice3.Model;
 
 namespace WPFpractice3.ViewModel
 {
-    class MainWindowViewModel
+    class MainWindowViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Person> Persons { get; set; }
         public Person SelectedPerson { get; set; }
@@ -18,14 +19,25 @@ namespace WPFpractice3.ViewModel
         public ICommand DeleteCommand { get; set; }
         public ICommand NewCommand { get; set; }
 
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged is null)
+                return;
+
+            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public MainWindowViewModel()
         {
             Persons = new ObservableCollection<Person>();
-            this.ShowCommand = new RelayCommand(CommandBinding_ShowExecuted, CommandBinding_ShowCanExecute);
-            this.DeleteCommand = new RelayCommand(CommandBinding_DeleteExecuted, CommandBinding_DeleteCanExecute);
-            this.NewCommand = new RelayCommand(CommandBinding_NewExecuted, CommandBinding_NewCanExecute);
+            this.ShowCommand = new RelayCommand(ShowCommandExecuted, ShowCommandCanExecute);
+            this.DeleteCommand = new RelayCommand(DeleteCommandExecuted, DeleteCommandCanExecute);
+            this.NewCommand = new RelayCommand(NewCommandExecuted, NewCommandCanExecute);
         }
-        private void CommandBinding_ShowExecuted(object obj)
+        private void ShowCommandExecuted(object obj)
         {
             string hugeText = string.Empty;
             using (var reader = new StreamReader($@"{Directory.GetCurrentDirectory()}\Persons.txt"))
@@ -40,14 +52,14 @@ namespace WPFpractice3.ViewModel
                     person.Id = int.Parse(line.Split('~')[0]);
                     person.Name = line.Split('~')[1];
                     person.Department = line.Split('~')[2];
-                    person.HiredDate = DateTime.Parse(line.Split('~')[4]);
-                    person.IsManager = bool.Parse(line.Split('~')[3]);
+                    person.HiredDate = DateTime.Parse(line.Split('~')[3]);
+                    person.IsManager = bool.Parse(line.Split('~')[4]);
                     Persons.Add(person);
                 }
             }
         }
 
-        private bool CommandBinding_ShowCanExecute(object obj)
+        private bool ShowCommandCanExecute(object obj)
         {
             if (Persons.Any())
                 return false;
@@ -55,7 +67,7 @@ namespace WPFpractice3.ViewModel
                 return true;
         }
 
-        private void CommandBinding_DeleteExecuted(object obj)
+        private void DeleteCommandExecuted(object obj)
         {
             if (SelectedPerson != null)
             {
@@ -63,7 +75,7 @@ namespace WPFpractice3.ViewModel
             }
         }
 
-        private bool CommandBinding_DeleteCanExecute(object obj)
+        private bool DeleteCommandCanExecute(object obj)
         {
             if (this.SelectedPerson == null)
                 return false;
@@ -71,12 +83,12 @@ namespace WPFpractice3.ViewModel
                 return true;
         }
 
-        private void CommandBinding_NewExecuted(object obj)
+        private void NewCommandExecuted(object obj)
         {
             Persons.Add(new Person() { Id = 0, Name = "empty", Department = "empty", HiredDate = DateTime.Today, IsManager = false });
         }
 
-        private bool CommandBinding_NewCanExecute(object obj)
+        private bool NewCommandCanExecute(object obj)
         {
             return true;
         }
