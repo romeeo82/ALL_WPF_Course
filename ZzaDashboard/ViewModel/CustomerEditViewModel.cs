@@ -37,7 +37,9 @@ namespace ZzaDashboard.ViewModel
         private void SaveCommandExecuted(object obj)
         {
             base.Customers.Add(this.Customer);
-            File.AppendAllText($@"{Directory.GetCurrentDirectory()}\ZzaPersons.txt", $"{this.Customer.FirstName}~{this.Customer.LastName}~{this.Customer.Phone}{Environment.NewLine}");
+            base.Customers = new ObservableCollection<Customer>(base.Customers);
+            File.AppendAllText($@"{Directory.GetCurrentDirectory()}\ZzaPersons.txt",
+                $"{this.Customer.FirstName}~{this.Customer.LastName}~{this.Customer.Phone}{Environment.NewLine}");
         }
 
         private bool SaveCommandCanExecute(object obj)
