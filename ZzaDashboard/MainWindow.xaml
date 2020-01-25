@@ -18,11 +18,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <view:CustomerEditView Grid.Column="0"/>
+        <view:CustomerEditView Grid.Column="0" DataContext="{Binding Path=SelectedCustomer}"/>
 
         <ListView x:Name="mainListView" Margin="10" Grid.Column="1" HorizontalContentAlignment="Stretch"
                   ItemsSource="{Binding Path=Customers}" 
-                  ItemTemplate="{StaticResource customerFullName}"/>
+                  ItemTemplate="{StaticResource customerFullName}"
+                  SelectedItem="{Binding Path=SelectedCustomer}"/>
 
     </Grid>
 </Window>

@@ -6,23 +6,39 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 using Zza.Data;
 
 namespace ZzaDashboard.ViewModel
 {
-    class MainViewModel: INotifyPropertyChanged
+    class MainViewModel : INotifyPropertyChanged
     {
+        private Customer selectedCustomer;
+        public Customer SelectedCustomer
+        {
+            get => this.selectedCustomer;
+            set
+            {
+                if (value == this.selectedCustomer)
+                    return;
+
+                this.selectedCustomer = value;
+                this.OnPropertyChanged(nameof(this.SelectedCustomer));
+            }
+        }
+
         private ObservableCollection<Customer> customers;
         public ObservableCollection<Customer> Customers
         {
             get => this.customers;
             set
             {
-                if (value != this.customers)
-                {
-                    this.customers = value;
-                    this.OnPropertyChanged(nameof(this.Customers));
-                }
+                if (value == this.customers)
+                    return;
+
+                this.customers = value;
+                this.OnPropertyChanged(nameof(this.Customers));
             }
         }
 
@@ -35,9 +51,19 @@ namespace ZzaDashboard.ViewModel
             this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
+
+        public ICommand SaveCommand { get; set; }
+
+
         public MainViewModel()
         {
+            if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
+                return;
+
             this.Customers = GetAllCustomers();
+
+            this.SaveCommand = new RelayCommand(SaveCommandExecuted, SaveCommandCanExecute);
+
         }
 
         private ObservableCollection<Customer> GetAllCustomers()
@@ -61,6 +87,22 @@ namespace ZzaDashboard.ViewModel
             }
 
             return customers;
+        }
+
+        private void SaveCommandExecuted(object obj)
+        {
+            this.Customers.Add(this.SelectedCustomer);
+            //this.Customers = new ObservableCollection<Customer>(base.Customers);
+            File.AppendAllText($@"{Directory.GetCurrentDirectory()}\ZzaPersons.txt",
+                $"{this.SelectedCustomer.FirstName}~{this.SelectedCustomer.LastName}~{this.SelectedCustomer.Phone}{Environment.NewLine}");
+        }
+
+        private bool SaveCommandCanExecute(object obj)
+        {
+            if (!string.IsNullOrEmpty(this.SelectedCustomer?.FirstName) && !string.IsNullOrEmpty(this.SelectedCustomer?.LastName) && !string.IsNullOrEmpty(this.SelectedCustomer?.Phone))
+                return true;
+            else
+                return false;
         }
     }
 }
