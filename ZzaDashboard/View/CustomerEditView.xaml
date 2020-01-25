@@ -26,7 +26,6 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ListView Grid.Column="2" ItemsSource="{Binding Path=Customers}"></ListView>
         <Label Content="First Name:"
                    Grid.Column="0"
                    HorizontalAlignment="Left"

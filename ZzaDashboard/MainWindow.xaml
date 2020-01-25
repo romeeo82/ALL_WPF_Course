@@ -2,8 +2,27 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:view="clr-namespace:ZzaDashboard.View"
+        xmlns:viewModel="clr-namespace:ZzaDashboard.ViewModel"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate x:Key="customerFullName">
+            <TextBlock Text="{Binding Path=FullName}"></TextBlock>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        <view:CustomerEditView/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <view:CustomerEditView Grid.Column="0"/>
+
+        <ListView x:Name="mainListView" Margin="10" Grid.Column="1" HorizontalContentAlignment="Stretch"
+                  ItemsSource="{Binding Path=Customers}" 
+                  ItemTemplate="{StaticResource customerFullName}"/>
+
     </Grid>
 </Window>
