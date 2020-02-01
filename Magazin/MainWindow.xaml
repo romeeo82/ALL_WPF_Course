@@ -14,7 +14,7 @@
     <Window.Resources>
         <DataTemplate x:Key="carTemplate">
             <StackPanel Orientation="Horizontal">
-                <Image Margin="5" Width="75" Height="75" Source="{Binding Path=Picture}"></Image>
+                <Image Margin="5" Width="80" Height="80" Source="{Binding Path=Picture}"></Image>
                 <TextBlock Margin="5" Text="{Binding Path=Brand}"></TextBlock>
                 <TextBlock Margin="5" Text="{Binding Path=Model}"></TextBlock>
             </StackPanel>
