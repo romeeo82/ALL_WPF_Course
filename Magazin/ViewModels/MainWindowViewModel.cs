@@ -66,9 +66,7 @@ namespace Magazin.ViewModels
         private void DeleteCommandExecuted(object obj)
         {
             if (SelectedCar != null)
-            {
                 this.Cars.Remove(this.SelectedCar);
-            }
         }
 
         private void DefaultCommandExecuted(object obj)
