@@ -12,7 +12,7 @@ using Zza.Data;
 
 namespace ZzaDashboard.ViewModel
 {
-    class MainViewModel : INotifyPropertyChanged
+    internal class MainWindowViewModel : INotifyPropertyChanged
     {
         private Customer selectedCustomer;
         public Customer SelectedCustomer
@@ -55,7 +55,7 @@ namespace ZzaDashboard.ViewModel
         public ICommand SaveCommand { get; set; }
 
 
-        public MainViewModel()
+        public MainWindowViewModel()
         {
             if (DesignerProperties.GetIsInDesignMode(new DependencyObject()))
                 return;
@@ -69,21 +69,22 @@ namespace ZzaDashboard.ViewModel
         private ObservableCollection<Customer> GetAllCustomers()
         {
             string hugeText = string.Empty;
-            ObservableCollection<Customer> customers = new ObservableCollection<Customer>();
+            var customers = new ObservableCollection<Customer>();
             using (var reader = new StreamReader($@"{Directory.GetCurrentDirectory()}\ZzaPersons.txt"))
             {
                 hugeText = reader.ReadToEnd();
             }
             foreach (var line in hugeText.Split(Environment.NewLine.ToCharArray()))
             {
-                if (!string.IsNullOrEmpty(line))
-                {
-                    var customer = new Customer();
-                    customer.FirstName = line.Split('~')[0];
-                    customer.LastName = line.Split('~')[1];
-                    customer.Phone = line.Split('~')[2];
-                    customers.Add(customer);
-                }
+                if (string.IsNullOrEmpty(line))
+                    continue;
+
+                string[] lineArr = line.Split('~');
+                var customer = new Customer();
+                customer.FirstName = lineArr[0];
+                customer.LastName = lineArr[1];
+                customer.Phone = lineArr[2];
+                customers.Add(customer);
             }
 
             return customers;

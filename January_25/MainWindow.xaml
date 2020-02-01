@@ -19,8 +19,7 @@
 
         <ListView x:Name="mainListView" Margin="10" Grid.Column="0" HorizontalContentAlignment="Stretch"
                   ItemsSource="{Binding Path=Customers}" 
-                  SelectedItem="{Binding Path=SelectedCustomer}"
-                  />
+                  SelectedItem="{Binding Path=SelectedCustomer}"/>
 
         <view:CustomerView DataContext="{Binding Path=SelectedCustomer}" Grid.Column="1"/>
 
