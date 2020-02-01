@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "January_25", "January_25\Ja
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "January_25_StyleTrigger", "January_25_StyleTrigger\January_25_StyleTrigger.csproj", "{EF43B5C1-B339-4347-9CC0-B4EF4B8208E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magazin", "Magazin\Magazin.csproj", "{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{EF43B5C1-B339-4347-9CC0-B4EF4B8208E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF43B5C1-B339-4347-9CC0-B4EF4B8208E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF43B5C1-B339-4347-9CC0-B4EF4B8208E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
