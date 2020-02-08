@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "January_25_StyleTrigger", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magazin", "Magazin\Magazin.csproj", "{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_WPF_practice1", "EF_WPF_practice1\EF_WPF_practice1.csproj", "{A0CBFEE8-EF78-47D3-A97E-75B7312BF124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_WPF_practice1_1", "EF_WPF_practice1_1\EF_WPF_practice1_1.csproj", "{B740939B-26DE-4047-975D-1600571F4AAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB6A5BED-F7A4-460D-A652-629D0BB80D1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0CBFEE8-EF78-47D3-A97E-75B7312BF124}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0CBFEE8-EF78-47D3-A97E-75B7312BF124}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0CBFEE8-EF78-47D3-A97E-75B7312BF124}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0CBFEE8-EF78-47D3-A97E-75B7312BF124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B740939B-26DE-4047-975D-1600571F4AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B740939B-26DE-4047-975D-1600571F4AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B740939B-26DE-4047-975D-1600571F4AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B740939B-26DE-4047-975D-1600571F4AAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
