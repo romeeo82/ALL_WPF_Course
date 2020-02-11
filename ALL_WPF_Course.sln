@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_WPF_practice1", "EF_WPF_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_WPF_practice1_1", "EF_WPF_practice1_1\EF_WPF_practice1_1.csproj", "{B740939B-26DE-4047-975D-1600571F4AAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolDbLections", "SchoolDbLections\SchoolDbLections.csproj", "{534E1A0F-DFEA-4D82-AE4F-B6D4637CC9FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{B740939B-26DE-4047-975D-1600571F4AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B740939B-26DE-4047-975D-1600571F4AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B740939B-26DE-4047-975D-1600571F4AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{534E1A0F-DFEA-4D82-AE4F-B6D4637CC9FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{534E1A0F-DFEA-4D82-AE4F-B6D4637CC9FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{534E1A0F-DFEA-4D82-AE4F-B6D4637CC9FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{534E1A0F-DFEA-4D82-AE4F-B6D4637CC9FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
