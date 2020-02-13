@@ -12,6 +12,6 @@ namespace SchoolDbLections.Models
         public string State { get; set; }
         public string Country { get; set; }
         public int AddressOfStudentId { get; set; }
-        public Student Student { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

@@ -15,7 +15,9 @@ namespace SchoolDbLections.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer(@"Server=DESKTOP-ELNAA5R\SQLEXPRESS;DataBase=SchoolDbLections;Trusted_Connection=True;");
+            dbContextOptionsBuilder.UseSqlServer(@"Server=DESKTOP-ELNAA5R\SQLEXPRESS;DataBase=SchoolDbLections;Trusted_Connection=True;")
+                                   .UseLazyLoadingProxies();
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
