@@ -170,6 +170,10 @@
     <Compile Include="Migrations\20200215081512_frst.designer.cs">
       <DependentUpon>20200215081512_frst.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200215111126_fistMigr.cs" />
+    <Compile Include="Migrations\20200215111126_fistMigr.designer.cs">
+      <DependentUpon>20200215111126_fistMigr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\HrDbContextModelSnapshot.cs" />
     <Compile Include="Models\HrDbContext.cs" />
     <Compile Include="Models\JobHistory.cs" />
