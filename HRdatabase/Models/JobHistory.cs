@@ -13,7 +13,7 @@ namespace HRdatabase.Models
         [Key]
         [Column("EMPLOYEE_ID")]
         public int EmployeeId { get; set; }
-        [Key]
+        //[Key]
         [Column("START_DATE")]
         public DateTime HiredDate { get; set; }
         public List<Employee> Employees { get; set; }
