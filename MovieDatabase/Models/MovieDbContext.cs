@@ -60,6 +60,8 @@ namespace MovieDatabase.Models
             modelBuilder.Entity<MovieDirection>().HasKey(md => new { md.DirectorId, md.MovieId });
 
             modelBuilder.Entity<MovieGenre>().HasKey(mg => new { mg.MovieId, mg.GenreId });
+
+            modelBuilder.Entity<Rating>().HasKey(r => new { r.MovieId, r.ReviewerId });
         }
     }
 }

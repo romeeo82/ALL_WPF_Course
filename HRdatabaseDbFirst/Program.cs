@@ -14,7 +14,7 @@ namespace HRdatabaseDbFirst
             {
                 var customers = zzaDbContext.Customer
                     .Include(c => c.Order)
-                        .ThenInclude(order => order.OrderItem).ToList();
+                        .ThenInclude(ord => ord.OrderItem).ToList();
 
                 var orderItem = zzaDbContext.OrderItem
                     .Where(oi => oi.Id == 1)
