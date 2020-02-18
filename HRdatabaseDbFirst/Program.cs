@@ -27,6 +27,14 @@ namespace HRdatabaseDbFirst
                     FirstName = s.FirstName,
                     LastName = s.LastName
                 });
+
+                // Explicit loading
+                Order order = zzaDbContext.Order.FirstOrDefault();
+                zzaDbContext.Entry(order).Reference(s => s.OrderStatus).Load();
+                zzaDbContext.Entry(order).Collection(s => s.OrderItem).Load();
+
+                // Lazy loading
+                List<Order> orderList = zzaDbContext.Order.ToList();
             }
 
             Console.ReadKey();
