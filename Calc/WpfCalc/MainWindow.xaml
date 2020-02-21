@@ -64,6 +64,6 @@
         </ListBox>
         <Slider x:Name="slider" Grid.Column="2" Grid.Row="6" Minimum="8" Maximum="20"></Slider>
         <TextBox x:Name="tbTest" Grid.Column="3" Grid.Row="6" KeyUp="tbTest_KeyUp" Panel.ZIndex="{Binding ElementName=btnTest, Path=Tag, Mode=TwoWay}"></TextBox>
-        <Button x:Name="btnTest" Grid.Column="3" Grid.Row="6" MouseDoubleClick="btnTest_MouseDoubleClick" Tag="0" Content="{Binding ElementName=tbTest, Path=Text}"></Button>
+        <Button x:Name="btnTest" Grid.Column="3" Grid.Row="6" Click="btnTest_Click" MouseRightButtonUp="btnTest_MouseDoubleClick" Tag="0" Content="{Binding ElementName=tbTest, Path=Text}"></Button>
     </Grid>
 </Window>
