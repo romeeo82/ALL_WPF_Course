@@ -165,6 +165,20 @@ namespace WpfCalc
             if (!string.IsNullOrEmpty(tbMain.Text))
                 tbMain.Text = tbMain.Text.Remove(tbMain.Text.Length - 1, 1);
         }
+
+        private void btnTest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Tag = 1;
+        }
+
+        private void tbTest_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Panel.SetZIndex(sender as TextBox, 0);
+            }
+        }
     }
 
 

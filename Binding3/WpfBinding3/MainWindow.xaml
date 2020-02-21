@@ -30,7 +30,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1">
-          <Button x:Name="btn1" Margin="5" Height="20" Click="OnBtn1Click">BTN 1</Button>
+            <Button x:Name="btn1" Margin="5" Height="20" Click="OnBtn1Click">BTN 1</Button>
             <TextBox x:Name="text1" Margin="5" MinWidth="100"></TextBox>
             <Label Content="{Binding ElementName=text1, Path=Text}" Margin="5"></Label>
             <TextBox x:Name="text2" Margin="5" MinWidth="100"></TextBox>
