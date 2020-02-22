@@ -29,11 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolDbLections", "SchoolD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRdatabase", "HRdatabase\HRdatabase.csproj", "{7F375F0C-42C5-4339-8552-E74E943B901B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieDatabase", "MovieDatabase\MovieDatabase.csproj", "{045B10A7-B013-4D58-9FA1-BFB77B19805D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MovieDatabase", "MovieDatabase\MovieDatabase.csproj", "{045B10A7-B013-4D58-9FA1-BFB77B19805D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRdatabaseFluentApi", "HRdatabaseFluentApi\HRdatabaseFluentApi.csproj", "{424BF160-E652-42E8-B575-50A8D82B093D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRdatabaseFluentApi", "HRdatabaseFluentApi\HRdatabaseFluentApi.csproj", "{424BF160-E652-42E8-B575-50A8D82B093D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRdatabaseDbFirst", "HRdatabaseDbFirst\HRdatabaseDbFirst.csproj", "{501069A1-E521-487C-A333-7E17642A4615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRdatabaseDbFirst", "HRdatabaseDbFirst\HRdatabaseDbFirst.csproj", "{501069A1-E521-487C-A333-7E17642A4615}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.ConsoleUI", "UniversityConsoleUI\University.ConsoleUI.csproj", "{84CE1773-28B6-4C2D-9226-150C6FDFEF26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.DAL", "University.DAL\University.DAL.csproj", "{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,14 @@ Global
 		{501069A1-E521-487C-A333-7E17642A4615}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{501069A1-E521-487C-A333-7E17642A4615}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{501069A1-E521-487C-A333-7E17642A4615}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84CE1773-28B6-4C2D-9226-150C6FDFEF26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84CE1773-28B6-4C2D-9226-150C6FDFEF26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84CE1773-28B6-4C2D-9226-150C6FDFEF26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84CE1773-28B6-4C2D-9226-150C6FDFEF26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
