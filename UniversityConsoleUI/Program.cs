@@ -136,7 +136,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type department Id to delete-->");
-            var department = unitOfWork.DepartmentRepository.GetById(int.Parse(Console.ReadLine()));
+            Department department = unitOfWork.DepartmentRepository.GetById(int.Parse(Console.ReadLine()));
             unitOfWork.DepartmentRepository.Delete(department);
             unitOfWork.Save();
             unitOfWork.Dispose();
@@ -147,7 +147,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type department Id to change-->");
-            var department = unitOfWork.DepartmentRepository.GetById(int.Parse(Console.ReadLine()));
+            Department department = unitOfWork.DepartmentRepository.GetById(int.Parse(Console.ReadLine()));
             Console.Write("Type department new Name-->");
             department.Name = Console.ReadLine();
             unitOfWork.Save();
@@ -159,7 +159,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type department name-->");
-            var department = new Department { Name = Console.ReadLine() };
+            Department department = new Department { Name = Console.ReadLine() };
             unitOfWork.DepartmentRepository.Insert(department);
             unitOfWork.Save();
             unitOfWork.Dispose();
@@ -199,7 +199,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type course Id to delete-->");
-            var course = unitOfWork.CourseRepository.GetById(int.Parse(Console.ReadLine()));
+            Course course = unitOfWork.CourseRepository.GetById(int.Parse(Console.ReadLine()));
             unitOfWork.CourseRepository.Delete(course);
             unitOfWork.Save();
             unitOfWork.Dispose();
@@ -210,7 +210,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type course Id to change-->");
-            var course = unitOfWork.CourseRepository.GetById(int.Parse(Console.ReadLine()));
+            Course course = unitOfWork.CourseRepository.GetById(int.Parse(Console.ReadLine()));
             Console.Write("Wanna change course name? y/n-->");
             if (Console.ReadLine() == "y")
             {
@@ -233,7 +233,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type course name-->");
-            var course = new Course { Name = Console.ReadLine() };
+            Course course = new Course { Name = Console.ReadLine() };
             Console.WriteLine(AllDepartmentsToString());
             Console.Write("Type department id-->");
             course.Department = unitOfWork.DepartmentRepository.GetById(int.Parse(Console.ReadLine()));
@@ -276,7 +276,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type student Id to delete-->");
-            var student = unitOfWork.StudentRepository.GetById(int.Parse(Console.ReadLine()));
+            Student student = unitOfWork.StudentRepository.GetById(int.Parse(Console.ReadLine()));
             unitOfWork.StudentRepository.Delete(student);
             unitOfWork.Save();
             unitOfWork.Dispose();
@@ -287,7 +287,7 @@ Press m to go to main menu");
         {
             UnitOfWork unitOfWork = new UnitOfWork();
             Console.Write("Type student Id to change-->");
-            var student = unitOfWork.StudentRepository.GetById(int.Parse(Console.ReadLine()));
+            Student student = unitOfWork.StudentRepository.GetById(int.Parse(Console.ReadLine()));
             Console.Write("Wanna change student name? y/n-->");
             if (Console.ReadLine() == "y")
             {
@@ -311,7 +311,7 @@ Press m to go to main menu");
         private static void AddStudent()
         {
             UnitOfWork unitOfWork = new UnitOfWork();
-            var student = new Student();
+            Student student = new Student();
             Console.Write("Type student first name-->");
             student.FirstName = Console.ReadLine();
             Console.Write("Type student new last name-->");
