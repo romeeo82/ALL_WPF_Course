@@ -217,7 +217,7 @@ Press m to go to main menu");
                 Console.Write("Type course new name-->");
                 course.Name = Console.ReadLine();
             }
-            Console.WriteLine("Wanna change department for the course? y/n");
+            Console.Write("Wanna change department for the course? y/n");
             if (Console.ReadLine() == "y")
             {
                 Console.WriteLine(AllDepartmentsToString());
@@ -296,7 +296,7 @@ Press m to go to main menu");
                 Console.Write("Type student new last name-->");
                 student.LastName = Console.ReadLine();
             }
-            Console.WriteLine("Wanna change course for the student? y/n");
+            Console.Write("Wanna change course for the student? y/n");
             if (Console.ReadLine() == "y")
             {
                 Console.WriteLine(AllCoursesToString());
