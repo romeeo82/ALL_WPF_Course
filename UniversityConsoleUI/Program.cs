@@ -7,8 +7,6 @@ namespace University.ConsoleUI
 {
     class Program
     {
-        //private static UnitOfWork unitOfWork = new UnitOfWork();
-
         static void Main(string[] args)
         {
             //StudentRepository studentRepository = new StudentRepository(new UniversityDbContext());
