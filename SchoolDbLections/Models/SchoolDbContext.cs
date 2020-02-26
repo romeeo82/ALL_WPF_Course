@@ -33,6 +33,15 @@ namespace SchoolDbLections.Models
                 .HasForeignKey<StudentAddress>(s => s.AddressOfStudentId);
 
             modelBuilder.Entity<StudentCourse>().HasKey(sc => new { sc.StudentId, sc.CourseId });
+
+
+            //shadow property addition
+            var allEntities = modelBuilder.Model.GetEntityTypes();
+            foreach (var entity in allEntities)
+            {
+                entity.AddProperty("CreateDate", typeof(DateTime?));
+                entity.AddProperty("UpdateDate", typeof(DateTime?));
+            }
         }
     }
 }

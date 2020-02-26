@@ -32,7 +32,7 @@ namespace SchoolDbLections
 
             Console.WriteLine("----------------------");
 
-            Student vlad = schoolDbContext.Students.FirstOrDefault(v=>v.Name == "Vlad");
+            Student vlad = schoolDbContext.Students.FirstOrDefault(v => v.Name == "Vlad");
             schoolDbContext.Entry(vlad).Reference(s => s.Grade).Load();
             schoolDbContext.Entry(vlad).Collection(s => s.StudentCourses).Load();
             Console.WriteLine("----------------------");
@@ -42,6 +42,31 @@ namespace SchoolDbLections
             {
                 List<Student> stList = ctx.Students.ToList();
             }
+
+
+
+
+            //var student = new Student()
+            //{
+            //    Id = 1,
+            //    Name = "Bill",
+            //    Address = new StudentAddress()
+            //    {
+            //        StudentAddressId = 1,
+            //        City = "Seatle",
+            //        Country = "USA"
+            //    },
+            //    StudentCourses = new List<StudentCourse>()
+            //    {
+            //        new StudentCourse(){ Course = new Course(){ CourseName = "Machi"} },
+            //        new StudentCourse(){ Course = new Course(){ CourseId = 2} }
+            //    }
+            //};
+
+            //var context = new SchoolDbContext();
+            //context.Students.Add(student);
+            //context.SaveChanges();//error accured checked on purpose
+
 
             Console.ReadKey();
         }

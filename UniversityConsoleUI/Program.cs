@@ -25,6 +25,7 @@ namespace University.ConsoleUI
             //var departments = unitOfWork.DepartmentRepository.Get();
             //var courses = unitOfWork.CourseRepository.Get();
 
+
             MainMenuLaunch();
         }
 
