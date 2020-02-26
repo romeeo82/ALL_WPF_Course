@@ -5,7 +5,7 @@ using University.DAL.Models;
 
 namespace University.DAL.Repositories
 {
-    public class UnitOfWork
+    public class UnitOfWork:IDisposable
     {
         private UniversityDbContext context = new UniversityDbContext();
         private GenericRepository<Student> studenttRepository;

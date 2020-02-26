@@ -92,14 +92,16 @@ Press 4 to view a list of all entities and propperties
 
         private static string AllStudentsToString()
         {
-            UnitOfWork unitOfWork = new UnitOfWork();
-            string tempText = "Students\n";
-            foreach (var student in unitOfWork.StudentRepository.Get())
+            using (UnitOfWork unitOfWork = new UnitOfWork())
             {
-                tempText += $"{student.Id} {student.FirstName} {student.LastName} {student.Course?.Name}\n";
-            }
-            unitOfWork.Dispose();
-            return tempText;
+                string tempText = "Students\n";
+                foreach (var student in unitOfWork.StudentRepository.Get())
+                {
+                    tempText += $"{student.Id} {student.FirstName} {student.LastName} {student.Course?.Name}\n";
+                }
+                //unitOfWork.Dispose();
+                return tempText;
+            }          
         }
 
         private static void WorkWithDepartments()
