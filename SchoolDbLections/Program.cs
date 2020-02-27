@@ -10,38 +10,38 @@ namespace SchoolDbLections
     {
         static void Main(string[] args)
         {
-            SchoolDbContext schoolDbContext = new SchoolDbContext();
-            Student student = schoolDbContext.Students.Find(2);
-            Console.WriteLine(student.Name);
-            Console.WriteLine("----------------------");
+            //SchoolDbContext schoolDbContext = new SchoolDbContext();
+            //Student student = schoolDbContext.Students.Find(2);
+            //Console.WriteLine(student.Name);
+            //Console.WriteLine("----------------------");
 
-            Student st = schoolDbContext.Students.Where(s => s.Name == "Vlad").FirstOrDefault();
-            Console.WriteLine(st.Name);
-            Console.WriteLine("----------------------");
+            //Student st = schoolDbContext.Students.Where(s => s.Name == "Vlad").FirstOrDefault();
+            //Console.WriteLine(st.Name);
+            //Console.WriteLine("----------------------");
 
-            var pups = schoolDbContext.Students.OrderByDescending(p => p.Name);
-            foreach (var pup in pups)
-            {
-                Console.WriteLine(pup.Name);
-            }
-            Console.WriteLine("----------------------");
+            //var pups = schoolDbContext.Students.OrderByDescending(p => p.Name);
+            //foreach (var pup in pups)
+            //{
+            //    Console.WriteLine(pup.Name);
+            //}
+            //Console.WriteLine("----------------------");
 
-            var pupsGroup = schoolDbContext.Students.Where(p => p.Name == "Vlad")
-                .Include(i => i.Grade)
-                .FirstOrDefault();
+            //var pupsGroup = schoolDbContext.Students.Where(p => p.Name == "Vlad")
+            //    .Include(i => i.Grade)
+            //    .FirstOrDefault();
 
-            Console.WriteLine("----------------------");
+            //Console.WriteLine("----------------------");
 
-            Student vlad = schoolDbContext.Students.FirstOrDefault(v => v.Name == "Vlad");
-            schoolDbContext.Entry(vlad).Reference(s => s.Grade).Load();
-            schoolDbContext.Entry(vlad).Collection(s => s.StudentCourses).Load();
-            Console.WriteLine("----------------------");
+            //Student vlad = schoolDbContext.Students.FirstOrDefault(v => v.Name == "Vlad");
+            //schoolDbContext.Entry(vlad).Reference(s => s.Grade).Load();
+            //schoolDbContext.Entry(vlad).Collection(s => s.StudentCourses).Load();
+            //Console.WriteLine("----------------------");
 
-            // lazy loading
-            using (var ctx = new SchoolDbContext())
-            {
-                List<Student> stList = ctx.Students.ToList();
-            }
+            //// lazy loading
+            //using (var ctx = new SchoolDbContext())
+            //{
+            //    List<Student> stList = ctx.Students.ToList();
+            //}
 
 
 
@@ -66,6 +66,17 @@ namespace SchoolDbLections
             //var context = new SchoolDbContext();
             //context.Students.Add(student);
             //context.SaveChanges();//error accured checked on purpose
+
+
+
+            var name = "Vlad";
+            var context = new SchoolDbContext();
+            var students = context.Students
+                .FromSqlRaw($"GetStudents {name}")
+                .ToList();
+
+            var stud = context.Database.ExecuteSqlRaw("update Students set Name = 'Ladya' where Id = 3");
+
 
 
             Console.ReadKey();
