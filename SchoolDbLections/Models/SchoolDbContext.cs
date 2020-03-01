@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,9 +15,18 @@ namespace SchoolDbLections.Models
         public DbSet<Course> Courses { get; set; }
         public DbSet<StudentCourse> StudentCourses { get; set; }
 
+
+        public static readonly ILoggerFactory loggerFactory = new LoggerFactory(new[] {
+            new ConsoleLoggerProvider((_, __) => true, true)
+        });
+        //public static readonly ILoggerFactory loggerFactory = new LoggerFactory().AddConsole((_,___)=>true);
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer(@"Server=DESKTOP-ELNAA5R\SQLEXPRESS;DataBase=SchoolDbLections;Trusted_Connection=True;")
+            dbContextOptionsBuilder.UseLoggerFactory(loggerFactory)
+                                   .EnableSensitiveDataLogging()
+                                   .UseSqlServer(@"Server=DESKTOP-ELNAA5R\SQLEXPRESS;DataBase=SchoolDbLections;Trusted_Connection=True;")
                                    .UseLazyLoadingProxies();
 
         }
