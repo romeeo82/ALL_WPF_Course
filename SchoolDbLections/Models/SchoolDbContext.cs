@@ -16,16 +16,17 @@ namespace SchoolDbLections.Models
         public DbSet<StudentCourse> StudentCourses { get; set; }
 
 
-        public static readonly ILoggerFactory loggerFactory = new LoggerFactory(new[] {
-            new ConsoleLoggerProvider((_, __) => true, true)
-        });
+        //public static readonly ILoggerFactory loggerFactory = new LoggerFactory(new[] {
+        //    new ConsoleLoggerProvider((_, __) => true, true)
+        //});
         //public static readonly ILoggerFactory loggerFactory = new LoggerFactory().AddConsole((_,___)=>true);
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseLoggerFactory(loggerFactory)
-                                   .EnableSensitiveDataLogging()
+            dbContextOptionsBuilder
+                                 //.UseLoggerFactory(loggerFactory)
+                                 //.EnableSensitiveDataLogging()
                                    .UseSqlServer(@"Server=DESKTOP-ELNAA5R\SQLEXPRESS;DataBase=SchoolDbLections;Trusted_Connection=True;")
                                    .UseLazyLoadingProxies();
 

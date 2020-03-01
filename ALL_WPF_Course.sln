@@ -35,9 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRdatabaseFluentApi", "HRda
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRdatabaseDbFirst", "HRdatabaseDbFirst\HRdatabaseDbFirst.csproj", "{501069A1-E521-487C-A333-7E17642A4615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.ConsoleUI", "UniversityConsoleUI\University.ConsoleUI.csproj", "{84CE1773-28B6-4C2D-9226-150C6FDFEF26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.ConsoleUI", "UniversityConsoleUI\University.ConsoleUI.csproj", "{84CE1773-28B6-4C2D-9226-150C6FDFEF26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.DAL", "University.DAL\University.DAL.csproj", "{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.DAL", "University.DAL\University.DAL.csproj", "{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazinWPFcore", "MagazinWPFcore\MagazinWPFcore.csproj", "{CBE1B264-0491-404F-B850-0C66573F085A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazinWPFcoreDAL", "MagazinWPFcoreDAL\MagazinWPFcoreDAL.csproj", "{4988E1C6-E7AF-451A-B00C-1CA6B9E9AB42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +121,14 @@ Global
 		{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBE1B264-0491-404F-B850-0C66573F085A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE1B264-0491-404F-B850-0C66573F085A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE1B264-0491-404F-B850-0C66573F085A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE1B264-0491-404F-B850-0C66573F085A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4988E1C6-E7AF-451A-B00C-1CA6B9E9AB42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4988E1C6-E7AF-451A-B00C-1CA6B9E9AB42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4988E1C6-E7AF-451A-B00C-1CA6B9E9AB42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4988E1C6-E7AF-451A-B00C-1CA6B9E9AB42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
