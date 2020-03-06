@@ -8,7 +8,7 @@ namespace University.DAL.Repositories
     public class UnitOfWork:IDisposable
     {
         private UniversityDbContext context = new UniversityDbContext();
-        private GenericRepository<Student> studenttRepository;
+        private GenericRepository<Student> studentRepository;
         private GenericRepository<Department> departmentRepository;
         private GenericRepository<Course> courseRepository;
 
@@ -16,9 +16,9 @@ namespace University.DAL.Repositories
         {
             get
             {
-                if (this.studenttRepository == null)
-                    this.studenttRepository = new GenericRepository<Student>(context);
-                return studenttRepository;
+                if (this.studentRepository == null)
+                    this.studentRepository = new GenericRepository<Student>(context);
+                return studentRepository;
             }
         }
 
