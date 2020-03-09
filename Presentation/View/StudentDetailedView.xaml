@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Presentation.View.StudentDetailedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Presentation.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="200"
+             DataContext="{Binding SelectedStudent}">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left">
+            <Label Content="Student"/>
+            <TextBox Text="{Binding FirstName}" ToolTip="First name"/>
+            <TextBox Text="{Binding LastName}" ToolTip="Last name"/>
+            <TextBox Text="{Binding Email}" ToolTip="Email"/>
+            <TextBox Text="{Binding DateOfBirth}" ToolTip="Birth date"/>
+            <TextBox Text="{Binding EntranceDate}" ToolTip="Entrance date"/>
+            <TextBox Text="{Binding PhoneNumber}" ToolTip="Phone"/>
+            <TextBox Text="{Binding Address.Country}" ToolTip="Country"/>
+            <TextBox Text="{Binding Address.City}" ToolTip="City"/>
+            <TextBox Text="{Binding Address.StreetAddress}" ToolTip="Street address"/>
+            <TextBox Text="{Binding Address.PostalCode}" ToolTip="Postal code"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

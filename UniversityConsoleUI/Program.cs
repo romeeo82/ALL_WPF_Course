@@ -24,8 +24,7 @@ namespace University.ConsoleUI
             //var students = unitOfWork.StudentRepository.Get();
             //var departments = unitOfWork.DepartmentRepository.Get();
             //var courses = unitOfWork.CourseRepository.Get();
-
-
+            
             MainMenuLaunch();
         }
 
