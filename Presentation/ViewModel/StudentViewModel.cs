@@ -12,7 +12,6 @@ namespace Presentation.ViewModel
         private ObservableCollection<Student> students;
         private Student selectedStudent;
 
-        private ObservableCollection<Book> books;
         private Book selectedBook;
 
         private readonly IStudentService studentService;
@@ -89,15 +88,6 @@ namespace Presentation.ViewModel
             }
         }
 
-        public ObservableCollection<Book> Books
-        {
-            get { return this.books; }
-            set
-            {
-                this.books = value;
-                this.OnPropertyChanged();
-            }
-        }
         public Book SelectedBook
         {
             get { return this.selectedBook; }
