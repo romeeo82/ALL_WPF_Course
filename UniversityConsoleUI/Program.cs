@@ -27,9 +27,9 @@ namespace University.ConsoleUI
             //var departments = unitOfWork.DepartmentRepository.Get();
             //var courses = unitOfWork.CourseRepository.Get();
 
-            MainMenuLaunch();
-
             new Task(MissionImpossible).Start();
+
+            MainMenuLaunch();
         }
 
         private static void MissionImpossible()
