@@ -39,13 +39,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.ConsoleUI", "Uni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.DAL", "University.DAL\University.DAL.csproj", "{30C10EF8-F07C-4FEC-93F6-C0B9761B9DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazinWPFcore", "MagazinWPFcore\MagazinWPFcore.csproj", "{CBE1B264-0491-404F-B850-0C66573F085A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagazinWPFcore", "MagazinWPFcore\MagazinWPFcore.csproj", "{CBE1B264-0491-404F-B850-0C66573F085A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagazinWPFcoreDAL", "MagazinWPFcoreDAL\MagazinWPFcoreDAL.csproj", "{4988E1C6-E7AF-451A-B00C-1CA6B9E9AB42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagazinWPFcoreDAL", "MagazinWPFcoreDAL\MagazinWPFcoreDAL.csproj", "{4988E1C6-E7AF-451A-B00C-1CA6B9E9AB42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvvmExample.DAL", "MvvmExample.DAL\MvvmExample.DAL.csproj", "{815CB41A-FBC3-48B1-B69E-0FCAE9395805}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvvmExample.DAL", "MvvmExample.DAL\MvvmExample.DAL.csproj", "{815CB41A-FBC3-48B1-B69E-0FCAE9395805}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "Presentation\Presentation.csproj", "{18F1F833-DDE5-42C9-8A08-F0D069BFDB4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreEFtest.Model", "Store.Model\StoreEFtest.Model.csproj", "{42DE1890-4E2F-48CD-8FB9-CA86C5B0FADF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{18F1F833-DDE5-42C9-8A08-F0D069BFDB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18F1F833-DDE5-42C9-8A08-F0D069BFDB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18F1F833-DDE5-42C9-8A08-F0D069BFDB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42DE1890-4E2F-48CD-8FB9-CA86C5B0FADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42DE1890-4E2F-48CD-8FB9-CA86C5B0FADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42DE1890-4E2F-48CD-8FB9-CA86C5B0FADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42DE1890-4E2F-48CD-8FB9-CA86C5B0FADF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
