@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StoreEFtest.Model.Entities;
+using System;
 
 namespace StoreEFtest.Model
 {
@@ -210,6 +211,170 @@ namespace StoreEFtest.Model
                 .HasColumnName("discount");
             modelBuilder.Entity<OrderItem>()
                 .HasKey(oi => new { oi.OrderId, oi.ProductId });
+
+            #region DataSeeding
+            var customer1 = new Customer()
+            {
+                Id = 1,
+                FirstName = "Bob",
+                LastName = "Blob",
+                City = "kh",
+                Email = "bla@bla.com",
+                Phone = "0572",
+                State = "KhObl",
+                Street = "Nauki 43a",
+                ZipCode = "61111",
+            };
+            var customer2 = new Customer()
+            {
+                Id = 2,
+                FirstName = "Bobik",
+                LastName = "Blobik",
+                City = "khar",
+                Email = "blabla@bla.com",
+                Phone = "057",
+                State = "KhO",
+                Street = "Nauki 43b",
+                ZipCode = "61111",
+            };
+            modelBuilder.Entity<Customer>().HasData(customer1, customer2);
+
+            var store1 = new Store
+            {
+                Id = 1,
+                Name = "The Store",
+                Phone = "057",
+                Email = "store@mail.com",
+                Street = "bla bla street",
+                City = "bla city",
+                State = "KH",
+                ZipCode = "61", 
+            };
+            modelBuilder.Entity<Store>().HasData(store1);
+
+            var staff1 = new Staff
+            {
+                Id = 1,
+                FirstName = "Walk",
+                LastName = "Walker",
+                Email = "walk@com",
+                IsActive = true,
+                Phone = "555",
+                StoreId = store1.Id,
+            };
+            var staff2 = new Staff
+            {
+                Id = 2,
+                FirstName = "Megan",
+                LastName = "Fox",
+                Email = "megan@com",
+                IsActive = true,
+                Phone = "777",
+                StoreId = store1.Id,
+                ManagerId = staff1.Id,
+            };
+            modelBuilder.Entity<Staff>().HasData(staff1, staff2);
+
+            var order1 = new Order
+            {
+                Id = 1,
+                CustomerId = customer1.Id,
+                OrderStatus = OrderStatuses.Received,
+                OrderDate = DateTime.Today,
+                RequiredDate = DateTime.Today.AddDays(2),
+                ShippedDate = DateTime.Today.AddDays(1),
+                StoreId = store1.Id,
+                StaffId = staff2.Id,
+            };
+            var order2 = new Order
+            {
+                Id = 2,
+                CustomerId = customer1.Id,
+                OrderStatus = OrderStatuses.Shipped,
+                OrderDate = DateTime.Today,
+                RequiredDate = DateTime.Today.AddDays(3),
+                ShippedDate = DateTime.Today,
+                StoreId = store1.Id,
+                StaffId = staff1.Id,
+            };
+            modelBuilder.Entity<Order>().HasData(order1, order2);
+
+            var brand1 = new Brand
+            {
+                Id = 1,
+                Name = "brand 1",
+            };
+            var brand2 = new Brand
+            {
+                Id = 2,
+                Name = "brand 2",
+            };
+            modelBuilder.Entity<Brand>().HasData(brand1, brand2);
+
+            var category1 = new Category
+            {
+                Id = 1,
+                Name = "cat 1",
+            };
+            var category2 = new Category
+            {
+                Id = 2,
+                Name = "cat 2",
+            };
+            modelBuilder.Entity<Category>().HasData(category1, category2);
+
+            var product1 = new Product
+            {
+                Id = 1,
+                Name = "product 1",
+                ModelYear = new DateTime(1982, 9, 4),
+                ProductPrice = 1000000,
+                BrandId = brand1.Id,
+                CategoryId = category1.Id,
+            };
+            var product2 = new Product
+            {
+                Id = 2,
+                Name = "product 2",
+                ModelYear = new DateTime(2017, 9, 22),
+                ProductPrice = 1000000000,
+                BrandId = brand2.Id,
+                CategoryId = category2.Id,
+            };
+            modelBuilder.Entity<Product>().HasData(product1, product2);
+
+            var stock1 = new Stock
+            {
+                Quantity = 300,
+                StoreId = store1.Id,
+                ProductId = product1.Id,
+            };
+            var stock2 = new Stock
+            {
+                Quantity = 200,
+                StoreId = store1.Id,
+                ProductId = product2.Id,
+            };
+            modelBuilder.Entity<Stock>().HasData(stock1, stock2);
+
+            var orderItem1 = new OrderItem
+            {
+                OrderId = order1.Id,
+                ProductId = product1.Id,
+                Quantity = 7,
+                Discount = 20,
+                Price = 100,
+            };
+            var orderItem2 = new OrderItem
+            {
+                OrderId = order2.Id,
+                ProductId = product2.Id,
+                Quantity = 17,
+                Discount = 30,
+                Price = 200,
+            };
+            modelBuilder.Entity<OrderItem>().HasData(orderItem1, orderItem2);
+            #endregion
         }
     }
 }

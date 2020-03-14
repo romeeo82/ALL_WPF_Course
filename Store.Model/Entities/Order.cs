@@ -20,7 +20,7 @@ namespace StoreEFtest.Model.Entities
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
 
-        public int StoreId { get; set; }
+        public int? StoreId { get; set; }
         public Store Store { get; set; }
 
         public int StaffId { get; set; }
