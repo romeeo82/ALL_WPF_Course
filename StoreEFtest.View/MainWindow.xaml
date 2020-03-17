@@ -1,0 +1,30 @@
+﻿<Window x:Class="StoreEFtest.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:adminView="clr-namespace:StoreEFtest.View.AdminViews"
+        xmlns:clientView="clr-namespace:StoreEFtest.View.ClientViews"
+        mc:Ignorable="d"
+        Title="Store" Height="500" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Admin"/>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <adminView:AdminView/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock Text="Client"/>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <clientView:ClientView/>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
