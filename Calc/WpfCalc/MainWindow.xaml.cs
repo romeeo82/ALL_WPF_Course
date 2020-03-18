@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -164,6 +165,25 @@ namespace WpfCalc
         {
             if (!string.IsNullOrEmpty(tbMain.Text))
                 tbMain.Text = tbMain.Text.Remove(tbMain.Text.Length - 1, 1);
+        }
+
+        private void btnTest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Tag = 1;
+        }
+
+        private void tbTest_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Panel.SetZIndex(sender as TextBox, 0);
+            }
+        }
+
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            SystemSounds.Beep.Play();
         }
     }
 

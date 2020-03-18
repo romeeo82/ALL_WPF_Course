@@ -4,18 +4,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:Data="clr-namespace:Zza.Data;assembly=Zza.Data"
              xmlns:viewModel="clr-namespace:ZzaDashboard.ViewModel"
+             xmlns:local="clr-namespace:ZzaDashboard"
              x:Class="ZzaDashboard.View.CustomerEditView"
              mc:Ignorable="d"
              d:DesignHeight="300"
              d:DesignWidth="300" x:Name="userControl">
-    <UserControl.DataContext>
-        <viewModel:CustomerEditViewModel/>
-    </UserControl.DataContext>
 
     <Grid HorizontalAlignment="Left"
               Margin="10,10,0,0"
               VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
@@ -38,7 +37,7 @@
                      Grid.Row="0"
                      VerticalAlignment="Center"
                      Width="120" 
-                 Text="{Binding Path=Customer.FirstName}"/>
+                 Text="{Binding Path=FirstName}"/>
         <Label Content="Last Name:"
                    Grid.Column="0"
                    HorizontalAlignment="Left"
@@ -52,7 +51,7 @@
                      Grid.Row="1"
                      VerticalAlignment="Center"
                      Width="120"
-                 Text="{Binding Path=Customer.LastName}"/>
+                 Text="{Binding Path=LastName}"/>
         <Label Content="Phone:"
                    Grid.Column="0"
                    HorizontalAlignment="Left"
@@ -66,14 +65,15 @@
                      Grid.Row="2"
                      VerticalAlignment="Center"
                      Width="120" 
-                 Text="{Binding Path=Customer.Phone}"/>
+                 Text="{Binding Path=Phone}"/>
         <StackPanel Grid.Row="3"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
                         HorizontalAlignment="Right"
                         Orientation="Horizontal"
                         Margin="3">
-            <Button Content="Save"
+            <Button Content="Save" DataContext="{Binding DataContext, RelativeSource={RelativeSource Mode=FindAncestor, 
+                                                                        AncestorType={x:Type local:MainWindow}}}"
                         Width="75"
                     Command="{Binding Path=SaveCommand}"/>
         </StackPanel>
